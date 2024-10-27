@@ -1,0 +1,14 @@
+#!/bin/sh
+
+if [[ "$1" == "docker-cli-plugin-metadata" ]]; then
+cat << HEREDOC
+{
+     "SchemaVersion": "0.1.0",
+     "Vendor": "https://github.com/wilmoore/docker-cli-plugins",
+     "Version": "v0.1.0",
+     "ShortDescription": "show running docker containers nicely formatted"
+}
+HEREDOC
+exit
+fi
+docker ps --format '{{.Names}}'
